@@ -1,0 +1,60 @@
+.badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+.badge{padding:6px 18px;border-radius:999px;font-size:.84rem;font-weight:700}
+.badge-c{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.badge-w{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.badge-u{background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--border)}
+.ans-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge-section-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:12px 16px 6px;font-weight:700}
+.badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 10px 12px}
+.result-wrap{animation:fadeUp .5s ease both}
+.result-hero{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;text-align:center;margin-bottom:16px}
+.result-trophy{font-size:4rem;margin-bottom:10px}
+.result-msg{font-family:Arial,sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent)}
+.result-score{font-size:1.1rem;color:var(--text);margin-top:6px}
+.result-percent{font-size:.9rem;color:var(--muted)}
+@keyframes scoreRainbow{0%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(30deg)}100%{filter:hue-rotate(0deg)}}
+@keyframes scorePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes trophyBounce{0%,100%{transform:translateY(0) rotate(0deg)}20%{transform:translateY(-14px) rotate(-8deg)}40%{transform:translateY(-8px) rotate(5deg)}60%{transform:translateY(-18px) rotate(-4deg)}80%{transform:translateY(-6px) rotate(3deg)}}
+.result-hero.great{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(59,130,246,.12));border:1.5px solid rgba(245,158,11,.4);animation:scorePulse 2s ease-in-out infinite}
+.result-hero.ultra{background:linear-gradient(135deg,rgba(245,158,11,.18),rgba(139,92,246,.18),rgba(16,185,129,.18));background-size:300% 300%;border:2px solid transparent;animation:ultraGlow 2s ease-in-out infinite,scoreRainbow 4s ease infinite;position:relative;overflow:hidden;will-change:transform,opacity}
+.result-hero.ultra::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);background-size:200% 100%;animation:shimmerSlide 2s linear infinite;pointer-events:none}
+.result-trophy.bounce{animation:trophyBounce 1.2s ease-in-out infinite}
+.result-trophy.ultra-bounce{animation:trophyBounce .9s ease-in-out infinite;font-size:5rem}
+.badge-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);z-index:9500;background:linear-gradient(135deg,#1a1a2e,#1e1c3c);border:1.5px solid #f59e0b;border-radius:18px;padding:12px 22px;text-align:center;font-family:Arial,sans-serif;font-size:.95rem;font-weight:800;color:#e8edf5;box-shadow:0 10px 36px rgba(245,158,11,.35);opacity:0;transition:opacity .35s ease,transform .35s ease;pointer-events:none;white-space:nowrap}
+.badge-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.result-user-banner{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(99,102,241,.08));border:1.5px solid rgba(59,130,246,.3);border-radius:999px;padding:7px 20px;margin-bottom:16px;width:fit-content;margin-left:auto;margin-right:auto;animation:fadeUp .4s ease both}
+.result-user-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:#fff;flex-shrink:0}
+.result-user-name{font-family:Arial,sans-serif;font-size:.88rem;font-weight:800;color:#93c5fd}
+.bp-share-score-badge{display:flex;flex-direction:column;align-items:center;gap:12px;margin:0 0 16px 0;background:#1a0d3d;border:2px solid #7c3aed;border-radius:20px;padding:18px 28px 20px;box-shadow:0 0 0 1px rgba(124,58,237,.3),0 8px 32px rgba(124,58,237,.4);animation:bp-badge-pulse 2.2s ease-in-out infinite;text-align:center}
+.bp-share-hero-btn{animation:bp-share-bounce .8s ease-in-out 1s 3}
+@keyframes bp-share-bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}70%{transform:translateY(-2px)}}
+.share-score-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#4f46e5);border:none;border-radius:999px;padding:11px 26px;color:#fff;font-family:Arial,sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;box-shadow:0 6px 20px rgba(124,58,237,.45);transition:filter .2s,transform .2s;letter-spacing:.02em}
+.share-score-btn:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.share-score-btn:active{transform:translateY(0)}
+.share-score-btn:disabled{opacity:.5;cursor:default;box-shadow:none;filter:none;transform:none}
+#bp-share-card{position:fixed;left:-9999px;top:0;width:480px;background:linear-gradient(145deg,#0f1724 0%,#1a2538 50%,#0f1724 100%);border-radius:24px;padding:36px 32px 32px;font-family:Arial,sans-serif;box-sizing:border-box;overflow:hidden}
+#bp-share-card *{box-sizing:border-box}
+.bp-share-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);z-index:9800;background:linear-gradient(135deg,#1a1a2e,#1e1c3c);border:1.5px solid #10b981;border-radius:18px;padding:12px 22px;text-align:center;font-family:Arial,sans-serif;font-size:.88rem;font-weight:800;color:#6ee7b7;box-shadow:0 10px 32px rgba(16,185,129,.3);opacity:0;transition:opacity .35s ease,transform .35s ease;pointer-events:none;white-space:nowrap}
+.bp-share-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ── Badge Unlock Overlay Animation ── */
+@keyframes bpBadgePopIn {
+  0%  { opacity:0; transform:scale(.4) rotate(-8deg); }
+  60% { transform:scale(1.12) rotate(3deg); }
+  80% { transform:scale(.96) rotate(-1deg); }
+  100%{ opacity:1; transform:scale(1) rotate(0deg); }
+}
+/* Challenge Card */
+.bp-chal-card {
+  background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(59,130,246,.08));
+  border:1.5px solid rgba(99,102,241,.4);
+  border-radius:20px;
+  padding:16px 18px;
+  animation:bpChalSlide .4s ease both;
+  position:relative;
+  overflow:hidden;
+}
+/* Session milestone badges on results screen */
+.bp-session-badges {
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  margin:14px 0 4px;
+}
